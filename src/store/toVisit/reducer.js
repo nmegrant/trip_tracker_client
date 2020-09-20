@@ -1,4 +1,4 @@
-initialState = [];
+const initialState = [];
 
 export default function toVisitReducer(state = initialState, action) {
   switch (action.type) {

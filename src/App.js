@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchVisitedThunkCreator());
     dispatch(fetchToVisitThunkCreator());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
