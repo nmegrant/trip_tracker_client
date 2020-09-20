@@ -12,7 +12,6 @@ export function fetchToVisitThunkCreator() {
     try {
       const response = await axios.get(`http://localhost:4000/tovisit`);
       dispatch(toVisitFetched(response.data));
-      console.log(response.data);
     } catch (error) {
       console.log(`Error fetching visited: ${error}`);
     }
