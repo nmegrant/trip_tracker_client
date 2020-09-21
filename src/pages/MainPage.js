@@ -19,8 +19,8 @@ export default function MainPage() {
 
   return (
     <div>
-      <LocationSearch />
       <h1>Trip Tracker</h1>
+      <LocationSearch />
       <Stats />
     </div>
   );
