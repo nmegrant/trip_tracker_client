@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Stats from "../components/Stats";
 import LocationSearch from "../components/LocationSearch/LocationSearch";
+import DarkMode from "../components/DarkMode";
 import { fetchToVisitThunkCreator } from "../store/toVisit/actions";
 import { fetchVisitedThunkCreator } from "../store/visited/actions";
+
 // import { selectVisted } from "../store/visited/selectors";
 // import { selectToVisit } from "../store/toVisit/selectors";
 
@@ -19,6 +21,7 @@ export default function MainPage() {
 
   return (
     <div>
+      <DarkMode />
       <h1>Trip Tracker</h1>
       <LocationSearch />
       <Stats />
