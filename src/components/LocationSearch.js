@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./LocationSearch.css";
 
 export default function LocationSearch() {
   const [visited, setVisited] = useState("");
@@ -17,7 +18,7 @@ export default function LocationSearch() {
   }
 
   return (
-    <form>
+    <form className="formstyle">
       <label>Search and add a new visited location</label>
       <input
         type="text"
