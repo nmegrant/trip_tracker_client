@@ -26,7 +26,7 @@ export default function LocationSearch() {
         onChange={(event) => setVisited(event.target.value)}
       ></input>
       <button onClick={searchVisited}>Search</button>
-      <label>Search and add a to visit location</label>
+      <label className="spacing">Search and add a to visit location</label>
       <input
         type="text"
         value={toVisit}
