@@ -17,7 +17,6 @@ export default function Stats() {
       numberOfCountries.push(place.country);
     }
   }
-  console.log(numberOfCountries);
   const percentageOfCountries = (numberOfCountries.length / 195) * 100;
 
   return (
@@ -25,11 +24,11 @@ export default function Stats() {
       <h1>Statistics</h1>
       <p>
         There are 10,000 cities in the world and you've visited{" "}
-        {percentageOfCities}% of them.
+        {percentageOfCities.toFixed(2)}% of them.
       </p>
       <p>
         There are 195 countries in the world and you've visited{" "}
-        {percentageOfCountries}% of them.
+        {percentageOfCountries.toFixed(2)}% of them.
       </p>
     </div>
   );
