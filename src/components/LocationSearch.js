@@ -1,23 +1,37 @@
 import React, { useState } from "react";
 
 export default function LocationSearch() {
-  const [location, setLocation] = useState("");
+  const [visited, setVisited] = useState("");
+  const [toVisit, setToVisit] = useState("");
 
-  function searchLocations(event) {
+  function searchVisited(event) {
     event.preventDefault();
-    console.log(location);
-    setLocation("");
+    console.log(visited);
+    setVisited("");
+  }
+
+  function searchToVisit(event) {
+    event.preventDefault();
+    console.log(toVisit);
+    setToVisit("");
   }
 
   return (
-    <form onSubmit={searchLocations}>
-      <label>Search a new location to add</label>
+    <form>
+      <label>Search and add a new visited location</label>
       <input
         type="text"
-        value={location}
-        onChange={(event) => setLocation(event.target.value)}
+        value={visited}
+        onChange={(event) => setVisited(event.target.value)}
       ></input>
-      <input type="submit"></input>
+      <button onClick={searchVisited}>Search</button>
+      <label>Search and add a to visit location</label>
+      <input
+        type="text"
+        value={toVisit}
+        onChange={(event) => setToVisit(event.target.value)}
+      ></input>
+      <button onClick={searchToVisit}>Search</button>
     </form>
   );
 }
