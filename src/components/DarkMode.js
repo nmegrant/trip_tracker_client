@@ -7,8 +7,6 @@ export default function DarkMode() {
   const dispatch = useDispatch();
   const currentMode = useSelector(selectAppState()).darkMode;
 
-  console.log(currentMode);
-
   function changeMode(event) {
     event.preventDefault();
     dispatch(changeDarkMode(!currentMode));
