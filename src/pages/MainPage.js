@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Stats from "../components/Stats";
-import LocationSearch from "../components/LocationSearch";
+import LocationSearch from "../components/LocationSearch/LocationSearch";
 import { fetchToVisitThunkCreator } from "../store/toVisit/actions";
 import { fetchVisitedThunkCreator } from "../store/visited/actions";
 // import { selectVisted } from "../store/visited/selectors";
