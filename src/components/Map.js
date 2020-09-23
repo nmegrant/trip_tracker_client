@@ -19,17 +19,18 @@ export default function Map(props) {
         defaultCenter={center}
         defaultZoom={zoom}
       >
-        {visited.map((place) => {
-          return (
-            <Marker
-              key={place.id}
-              lat={place.lat}
-              lng={place.long}
-              name={place.city}
-              color="blue"
-            />
-          );
-        })}
+        {toVisit.map((place) => (
+          <Marker key={place.id} lat={place.lat} lng={place.long} color="red" />
+        ))}
+        {visited.map((place) => (
+          <Marker
+            key={place.id}
+            lat={place.lat}
+            lng={place.long}
+            name={place.city}
+            color="blue"
+          />
+        ))}
       </GoogleMapReact>
     </div>
   );
