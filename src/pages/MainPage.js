@@ -8,18 +8,12 @@ import { fetchToVisitThunkCreator } from "../store/toVisit/actions";
 import { fetchVisitedThunkCreator } from "../store/visited/actions";
 import { selectAppState } from "../store/appState/selectors";
 
-// import { selectVisted } from "../store/visited/selectors";
-// import { selectToVisit } from "../store/toVisit/selectors";
-
 export default function MainPage() {
   const dispatch = useDispatch();
   const mode = useSelector(selectAppState()).darkMode;
 
   const background = mode ? "#444444" : "#FFFFFF";
   const colour = mode ? "#FFFFFF" : "#444444";
-
-  // const visited = useSelector(selectVisted());
-  // const toVisit = useSelector(selectToVisit());
 
   useEffect(() => {
     dispatch(fetchVisitedThunkCreator());
