@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Geocode from "react-geocode";
+import { addNewVisitedThunkCreator } from "../../store/visited/actions";
 import "./LocationSearch.css";
 
 export default function LocationSearch() {
   const [visited, setVisited] = useState("");
   const [toVisit, setToVisit] = useState("");
+  const dispatch = useDispatch();
 
   Geocode.setApiKey(process.env.REACT_APP_API_KEY);
   Geocode.setLanguage("en");
@@ -12,11 +15,10 @@ export default function LocationSearch() {
 
   function searchVisited(event) {
     event.preventDefault();
-    console.log(visited);
     Geocode.fromAddress(`${visited}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
+        dispatch(addNewVisitedThunkCreator({ lat, lng, visited }));
       },
       (error) => {
         console.error(error);
