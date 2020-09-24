@@ -19,7 +19,7 @@ export function fetchVisitedThunkCreator() {
   };
 }
 
-export function addNewVisited(location) {
+export function addVisited(location) {
   return { type: "ADD_NEW_VISITED", payload: location };
 }
 
@@ -52,6 +52,7 @@ export function addNewVisitedThunkCreator(location) {
         country,
       });
       console.log(newVisited.data);
+      dispatch(addVisited(newVisited.data));
     } catch (error) {
       console.log(`Error adding new city visisted: ${error}`);
     }
