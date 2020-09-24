@@ -47,6 +47,7 @@ export function addNewVisitedThunkCreator(location) {
         city,
         country,
       });
+      console.log(newVisited.data);
     } catch (error) {
       console.log(`Error adding new city visisted: ${error}`);
     }
