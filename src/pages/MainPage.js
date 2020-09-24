@@ -4,6 +4,7 @@ import Stats from "../components/Stats";
 import LocationSearch from "../components/LocationSearch/LocationSearch";
 import DarkMode from "../components/DarkMode";
 import Map from "../components/Map";
+import CityInfo from "../components/CityInfo";
 import { fetchToVisitThunkCreator } from "../store/toVisit/actions";
 import { fetchVisitedThunkCreator } from "../store/visited/actions";
 import { selectAppState } from "../store/appState/selectors";
@@ -33,6 +34,7 @@ export default function MainPage() {
       >
         <Stats />
         <LocationSearch />
+        <CityInfo />
       </div>
       <Map />
     </div>
