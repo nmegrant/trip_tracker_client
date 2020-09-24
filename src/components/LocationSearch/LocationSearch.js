@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Geocode from "react-geocode";
 import { addNewVisitedThunkCreator } from "../../store/visited/actions";
+import { addNewToVisitThunkCreator } from "../../store/toVisit/actions";
 import "./LocationSearch.css";
 
 export default function LocationSearch() {
@@ -29,11 +30,11 @@ export default function LocationSearch() {
 
   function searchToVisit(event) {
     event.preventDefault();
-    console.log(toVisit);
+
     Geocode.fromAddress(`${toVisit}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
+        dispatch(addNewToVisitThunkCreator({ lat, lng, toVisit }));
       },
       (error) => {
         console.error(error);

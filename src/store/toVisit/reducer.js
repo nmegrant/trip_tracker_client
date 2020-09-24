@@ -5,7 +5,7 @@ export default function toVisitReducer(state = initialState, action) {
     case "TO_VISITED_FETCHED":
       return [...action.payload];
     case "ADD_NEW_TO_VISITED":
-      return [...state, ...action.payload];
+      return [...state, action.payload];
     default:
       return state;
   }

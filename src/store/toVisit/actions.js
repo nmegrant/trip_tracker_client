@@ -51,7 +51,6 @@ export function addNewToVisitThunkCreator(location) {
         city,
         country,
       });
-      console.log(newToVisit.data);
       dispatch(addToVisit(newToVisit.data));
     } catch (error) {
       console.log(`Error adding new city to visist: ${error}`);
