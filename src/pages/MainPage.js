@@ -24,8 +24,16 @@ export default function MainPage() {
     <div style={{ background: background, color: colour, height: "1000px" }}>
       <DarkMode />
       <h1>Trip Tracker</h1>
-      <LocationSearch />
-      <Stats />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <Stats />
+        <LocationSearch />
+      </div>
       <Map />
     </div>
   );
