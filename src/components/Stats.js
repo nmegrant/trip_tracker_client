@@ -13,10 +13,12 @@ export default function Stats() {
   //calculate percentage of countries visited - may move to server later
   const numberOfCountries = [];
   for (let place of visited) {
-    if (!numberOfCountries.includes(place)) {
+    if (numberOfCountries.includes(place.country) === false) {
       numberOfCountries.push(place.country);
     }
   }
+
+  console.log(numberOfCountries);
   const percentageOfCountries = (numberOfCountries.length / 195) * 100;
 
   return (
