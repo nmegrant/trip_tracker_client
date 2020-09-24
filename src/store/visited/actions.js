@@ -19,6 +19,10 @@ export function fetchVisitedThunkCreator() {
   };
 }
 
+export function addNewVisited(location) {
+  return { type: "ADD_NEW_VISITED", payload: location };
+}
+
 export function addNewVisitedThunkCreator(location) {
   return async function addNewVisited(dispatch, getState) {
     try {
