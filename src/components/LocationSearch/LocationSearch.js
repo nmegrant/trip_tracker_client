@@ -34,7 +34,7 @@ export default function LocationSearch() {
     Geocode.fromAddress(`${toVisit}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        dispatch(addNewToVisitThunkCreator({ lat, lng, toVisit }));
+        dispatch(addNewToVisitThunkCreator({ lat, lng }));
       },
       (error) => {
         console.error(error);
