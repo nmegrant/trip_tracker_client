@@ -26,34 +26,36 @@ export function addVisited(location) {
 export function addNewVisitedThunkCreator(location) {
   return async function addNewVisited(dispatch, getState) {
     try {
-      const { lat, lng, visited } = location;
-      const splitUpLocation = visited.split(" ");
-      var country = "";
+      const { lat, lng } = location;
 
-      let city = splitUpLocation[0].replace(/,/g, "");
-      if (splitUpLocation.length !== 2) {
-        await Geocode.fromLatLng(lat, lng).then(
-          (response) => {
-            const address = response.results[0].formatted_address;
-            const splitAddress = address.split(" ");
-            country = splitAddress[splitAddress.length - 1];
-          },
-          (error) => {
-            console.error(error);
+      var country = "";
+      var city = "";
+
+      await Geocode.fromLatLng(lat, lng).then(
+        (response) => {
+          const address = response.results[0].formatted_address;
+          const splitAddress = address.split(", ");
+
+          country = splitAddress[splitAddress.length - 1];
+
+          if (!/[\d]/.test(splitAddress[2])) {
+            city = splitAddress[2];
+          } else if (!/[\d]/.test(splitAddress[1])) {
+            city = splitAddress[1];
           }
-        );
-      } else {
-        country = splitUpLocation[1];
-      }
-      console.log(city);
-      console.log(country);
-      // const newVisited = await axios.post(`http://localhost:4000/visited`, {
-      //   long: lng,
-      //   lat,
-      //   city,
-      //   country,
-      // });
-      // dispatch(addVisited(newVisited.data));
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+
+      const newVisited = await axios.post(`http://localhost:4000/visited`, {
+        long: lng,
+        lat,
+        city,
+        country,
+      });
+      dispatch(addVisited(newVisited.data));
     } catch (error) {
       console.log(`Error adding new city visisted: ${error}`);
     }
