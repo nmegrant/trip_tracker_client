@@ -18,7 +18,6 @@ export default function Stats() {
     }
   }
 
-  console.log(numberOfCountries);
   const percentageOfCountries = (numberOfCountries.length / 195) * 100;
 
   return (
