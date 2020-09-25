@@ -45,14 +45,15 @@ export function addNewVisitedThunkCreator(location) {
       } else {
         country = splitUpLocation[1];
       }
-      const newVisited = await axios.post(`http://localhost:4000/visited`, {
-        long: lng,
-        lat,
-        city,
-        country,
-      });
-      console.log(newVisited.data);
-      dispatch(addVisited(newVisited.data));
+      console.log(city);
+      console.log(country);
+      // const newVisited = await axios.post(`http://localhost:4000/visited`, {
+      //   long: lng,
+      //   lat,
+      //   city,
+      //   country,
+      // });
+      // dispatch(addVisited(newVisited.data));
     } catch (error) {
       console.log(`Error adding new city visisted: ${error}`);
     }
