@@ -9,6 +9,8 @@ export default function CityInfo() {
   useEffect(() => {
     const cities = visited.map((place) => place.city);
 
+    setFacts([]);
+
     if (cities.includes("Tokyo")) {
       setFacts((facts) => [
         ...facts,
