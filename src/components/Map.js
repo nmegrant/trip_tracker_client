@@ -7,7 +7,7 @@ import { selectToVisit } from "../store/toVisit/selectors";
 
 export default function Map(props) {
   const [center] = useState({ lat: 41, lng: -36 });
-  const [zoom] = useState(1);
+  const [zoom] = useState(0);
 
   const visited = useSelector(selectVisted());
   const toVisit = useSelector(selectToVisit());
