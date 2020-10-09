@@ -7,10 +7,12 @@ import { selectToVisit } from "../store/toVisit/selectors";
 
 export default function Map(props) {
   const [center] = useState({ lat: 41, lng: -36 });
-  const [zoom] = useState(1);
+  const [zoom] = useState(0);
 
   const visited = useSelector(selectVisted());
   const toVisit = useSelector(selectToVisit());
+
+  console.log(toVisit);
 
   return (
     <div style={{ height: "200vh", width: "100%", margin: "10px" }}>
@@ -20,7 +22,13 @@ export default function Map(props) {
         defaultZoom={zoom}
       >
         {toVisit.map((place) => (
-          <Marker key={place.id} lat={place.lat} lng={place.long} color="red" />
+          <Marker
+            key={place.id}
+            lat={place.lat}
+            lng={place.long}
+            name={place.city}
+            color="red"
+          />
         ))}
         {visited.map((place) => (
           <Marker
