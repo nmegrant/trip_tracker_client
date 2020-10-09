@@ -6,13 +6,15 @@ export default function Marker(props) {
   const { color, name } = props;
 
   return (
-    <div
-      data-tip={name}
-      className="marker"
-      style={{ backgroundColor: color, cursor: "pointer" }}
-      title={name}
-    >
-      <ReactTooltip />
+    <div>
+      <div
+        data-tip={name}
+        data-for="city-marker"
+        className="marker"
+        style={{ backgroundColor: color, cursor: "pointer" }}
+        title={name}
+      ></div>
+      <ReactTooltip id="city-marker" />
     </div>
   );
 }
