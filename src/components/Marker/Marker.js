@@ -12,7 +12,6 @@ export default function Marker(props) {
         data-for="city-marker"
         className="marker"
         style={{ backgroundColor: color, cursor: "pointer" }}
-        title={name}
       ></div>
       <ReactTooltip id="city-marker" />
     </div>
