@@ -12,6 +12,8 @@ export default function Map(props) {
   const visited = useSelector(selectVisted());
   const toVisit = useSelector(selectToVisit());
 
+  console.log(toVisit);
+
   return (
     <div style={{ height: "200vh", width: "100%", margin: "10px" }}>
       <GoogleMapReact
@@ -20,7 +22,13 @@ export default function Map(props) {
         defaultZoom={zoom}
       >
         {toVisit.map((place) => (
-          <Marker key={place.id} lat={place.lat} lng={place.long} color="red" />
+          <Marker
+            key={place.id}
+            lat={place.lat}
+            lng={place.long}
+            name={place.city}
+            color="red"
+          />
         ))}
         {visited.map((place) => (
           <Marker
