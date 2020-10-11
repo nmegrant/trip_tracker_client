@@ -1,5 +1,6 @@
 import axios from "axios";
 import Geocode from "react-geocode";
+import { toVisitFetched } from "../toVisit/actions";
 
 export function visitedFetched(visitedCities) {
   return {
@@ -55,7 +56,13 @@ export function addNewVisitedThunkCreator(location) {
         city,
         country,
       });
+
+      const newToVisit = await axios.delete(`http://localhost:4000/tovisit`);
+
       dispatch(addVisited(newVisited.data));
+      if (newToVisit.length > 0) {
+        dispatch(toVisitFetched(newToVisit.data));
+      }
     } catch (error) {
       console.log(`Error adding new city visisted: ${error}`);
     }
