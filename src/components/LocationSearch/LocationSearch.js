@@ -4,6 +4,7 @@ import Geocode from "react-geocode";
 import { addNewVisitedThunkCreator } from "../../store/visited/actions";
 import { addNewToVisitThunkCreator } from "../../store/toVisit/actions";
 import "./LocationSearch.css";
+import { SearchButton } from "../styles/style";
 
 export default function LocationSearch() {
   const [visited, setVisited] = useState("");
@@ -55,14 +56,14 @@ export default function LocationSearch() {
         value={visited}
         onChange={(event) => setVisited(event.target.value)}
       ></input>
-      <button onClick={searchVisited}>Search</button>
+      <SearchButton onClick={searchVisited}>Search</SearchButton>
       <label className="spacing">Search and add a to visit location</label>
       <input
         type="text"
         value={toVisit}
         onChange={(event) => setToVisit(event.target.value)}
       ></input>
-      <button onClick={searchToVisit}>Search</button>
+      <SearchButton onClick={searchToVisit}>Search</SearchButton>
     </form>
   );
 }
