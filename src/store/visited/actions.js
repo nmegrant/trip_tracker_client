@@ -57,7 +57,9 @@ export function addNewVisitedThunkCreator(location) {
         country,
       });
 
-      const newToVisit = await axios.delete(`http://localhost:4000/tovisit`);
+      const newToVisit = await axios.delete(`http://localhost:4000/tovisit`, {
+        data: { country, city },
+      });
 
       dispatch(addVisited(newVisited.data));
       if (newToVisit.length > 0) {
