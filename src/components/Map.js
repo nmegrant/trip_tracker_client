@@ -12,9 +12,6 @@ export default function Map(props) {
   const visited = useSelector(selectVisted());
   const toVisit = useSelector(selectToVisit());
 
-  console.log(visited);
-  console.log(toVisit);
-
   return (
     <div style={{ height: "200vh", width: "100%", margin: "10px" }}>
       <GoogleMapReact

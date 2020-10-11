@@ -73,6 +73,7 @@ export function deleteToVisitThunkCreator(location) {
     try {
       const { city, country } = location;
 
+      //why does delete not work???
       const newToVisit = await axios.request({
         url: `http://localhost:4000/tovisit`,
         method: "DELETE",
@@ -81,7 +82,7 @@ export function deleteToVisitThunkCreator(location) {
           city,
         },
       });
-      console.log(newToVisit.data);
+
       if (newToVisit.data.length > 0) {
         dispatch(toVisitUpdatedFetched(newToVisit.data));
       }
