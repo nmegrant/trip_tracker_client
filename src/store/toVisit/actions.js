@@ -60,3 +60,34 @@ export function addNewToVisitThunkCreator(location) {
     }
   };
 }
+
+export function toVisitUpdatedFetched(toVisitCities) {
+  return {
+    type: "TO_VISITED_UPDATED_FETCHED",
+    payload: toVisitCities,
+  };
+}
+
+export function deleteToVisitThunkCreator(location) {
+  return async function deleteToVisitThunkCreator(dispatch, getState) {
+    try {
+      const { city, country } = location;
+
+      //why does delete not work???
+      const newToVisit = await axios.request({
+        url: `http://localhost:4000/tovisit`,
+        method: "DELETE",
+        data: {
+          country,
+          city,
+        },
+      });
+
+      if (newToVisit.data.length > 0) {
+        dispatch(toVisitUpdatedFetched(newToVisit.data));
+      }
+    } catch (error) {
+      console.log(`Error deleting city: ${error}`);
+    }
+  };
+}
