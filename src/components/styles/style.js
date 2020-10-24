@@ -31,3 +31,9 @@ export const ModeButton = styled.button`
     transform: translateY(4px);
   }
 `;
+
+/* Array */
+// ["2274a5","f75c03","00916e","d90368","feefe5"]
+
+/* Object */
+// {"Star Command Blue":"2274a5","Orange Pantone":"f75c03","Illuminating Emerald":"00916e","Dogwood Rose":"d90368","Linen":"feefe5"}
