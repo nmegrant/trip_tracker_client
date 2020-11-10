@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import { SearchButton as SignupButton } from "../components/styles/style";
 
 export default function SignUp() {
   const validate = (values) => {
@@ -13,8 +14,14 @@ export default function SignUp() {
     if (!values.email) {
       errors.email = "Required";
     }
-    if (!values.password) {
+    if (/%[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,5}/.test(values.email)) {
+      errors.email = "Please supply a valid email.";
+    }
+    if (!values.password || values.password.length === 0) {
       errors.password = "Required";
+    }
+    if (values.password.length < 3) {
+      errors.password = "Please supply a longer password - for your security!";
     }
     return errors;
   };
@@ -31,30 +38,20 @@ export default function SignUp() {
           country: "",
         }}
         validate={validate}
-        // validate={(values) => {
-        //   const errors = {};
-        //   if (!values.firstName) {
-        //     errors.firstName = "Required";
-        //   }
-        //   if (!values.lastName) {
-        //     errors.lastName = "Required";
-        //   }
-        //   if (!values.email) {
-        //     errors.email = "Required";
-        //   }
-        //   if (!values.password) {
-        //     errors.password = "Required";
-        //   }
-        //   return errors;
-        // }}
         onSubmit={async (values, actions) => {
           await new Promise((r) => setTimeout(r, 1000));
           console.log(values);
           actions.resetForm();
         }}
       >
-        {({ isSubmitting }) => (
-          <Form>
+        {({ isSubmitting, errors }) => (
+          <Form
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <label htmlFor="firstName">First Name</label>
             <Field name="firstName" type="text" />
             <ErrorMessage name="firstName" />
@@ -70,9 +67,9 @@ export default function SignUp() {
             <label htmlFor="country">Country</label>
             <Field name="country" type="text" />
             <ErrorMessage name="country" />
-            <button type="submit" disabled={isSubmitting}>
+            <SignupButton type="submit" disabled={isSubmitting}>
               Sign up
-            </button>
+            </SignupButton>
           </Form>
         )}
       </Formik>
