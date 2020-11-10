@@ -1,8 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { signupThunkCreator } from "../store/user/actions";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { SearchButton as SignupButton } from "../components/styles/style";
 
 export default function SignUp() {
+  const dispatch = useDispatch();
+
   const validate = (values) => {
     const errors = {};
     if (!values.firstName) {
@@ -40,7 +44,7 @@ export default function SignUp() {
         validate={validate}
         onSubmit={async (values, actions) => {
           await new Promise((r) => setTimeout(r, 1000));
-          console.log(values);
+          dispatch(signupThunkCreator(values));
           actions.resetForm();
         }}
       >

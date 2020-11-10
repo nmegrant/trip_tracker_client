@@ -1,8 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { loginThunkCreator } from "../store/user/actions";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { SearchButton as LoginButton } from "../components/styles/style";
 
 export default function Login() {
+  const dispatch = useDispatch();
+
   return (
     <div>
       <h1>Login</h1>
@@ -13,7 +17,7 @@ export default function Login() {
         }}
         onSubmit={async (values, actions) => {
           await new Promise((r) => setTimeout(r, 1000));
-          console.log(values);
+          dispatch(loginThunkCreator(values));
           actions.resetForm();
         }}
       >
