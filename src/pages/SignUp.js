@@ -1,8 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { signupThunkCreator } from "../store/user/actions";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { SearchButton as SignupButton } from "../components/styles/style";
 
 export default function SignUp() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const validate = (values) => {
     const errors = {};
     if (!values.firstName) {
@@ -38,10 +44,13 @@ export default function SignUp() {
           country: "",
         }}
         validate={validate}
-        onSubmit={async (values, actions) => {
-          await new Promise((r) => setTimeout(r, 1000));
-          console.log(values);
+        onSubmit={(values, actions) => {
+          dispatch(signupThunkCreator(values));
           actions.resetForm();
+          console.log("here");
+          if (localStorage.getItem("token")) {
+            history.push("/");
+          }
         }}
       >
         {({ isSubmitting, errors }) => (
