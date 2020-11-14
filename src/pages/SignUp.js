@@ -48,7 +48,9 @@ export default function SignUp() {
           dispatch(signupThunkCreator(values));
           actions.resetForm();
           console.log("here");
-          history.push("/");
+          if (localStorage.getItem("token")) {
+            history.push("/");
+          }
         }}
       >
         {({ isSubmitting, errors }) => (

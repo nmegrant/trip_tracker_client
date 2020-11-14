@@ -20,7 +20,9 @@ export default function Login() {
         onSubmit={(values, actions) => {
           dispatch(loginThunkCreator(values));
           actions.resetForm();
-          history.push("/");
+          if (localStorage.getItem("token")) {
+            history.push("/");
+          }
         }}
       >
         {({ isSubmitting, errors }) => (
