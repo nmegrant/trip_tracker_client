@@ -15,8 +15,7 @@ export default function Login() {
           email: "",
           password: "",
         }}
-        onSubmit={async (values, actions) => {
-          await new Promise((r) => setTimeout(r, 1000));
+        onSubmit={(values, actions) => {
           dispatch(loginThunkCreator(values));
           actions.resetForm();
         }}

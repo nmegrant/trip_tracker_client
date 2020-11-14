@@ -42,8 +42,7 @@ export default function SignUp() {
           country: "",
         }}
         validate={validate}
-        onSubmit={async (values, actions) => {
-          await new Promise((r) => setTimeout(r, 1000));
+        onSubmit={(values, actions) => {
           dispatch(signupThunkCreator(values));
           actions.resetForm();
         }}

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Stats from "../components/Stats";
 import LocationSearch from "../components/LocationSearch/LocationSearch";
@@ -25,7 +25,10 @@ export default function MainPage() {
   return (
     <div style={{ background: background, color: colour, height: "1000px" }}>
       <DarkMode />
-      <p><Link to="/signup">Sign in</Link> or <Link to="login">Log in</Link> to plan/track your own trips!</p>
+      <p>
+        <Link to="/signup">Sign up</Link> or <Link to="login">Log in</Link> to
+        plan/track your own trips!
+      </p>
       <h1>Trip Tracker</h1>
       <div
         style={{
