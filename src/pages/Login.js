@@ -1,11 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { loginThunkCreator } from "../store/user/actions";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { SearchButton as LoginButton } from "../components/styles/style";
 
 export default function Login() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <div>
@@ -18,6 +20,7 @@ export default function Login() {
         onSubmit={(values, actions) => {
           dispatch(loginThunkCreator(values));
           actions.resetForm();
+          history.push("/");
         }}
       >
         {({ isSubmitting, errors }) => (

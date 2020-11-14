@@ -9,10 +9,14 @@ import CityInfo from "../components/CityInfo";
 import { fetchToVisitThunkCreator } from "../store/toVisit/actions";
 import { fetchVisitedThunkCreator } from "../store/visited/actions";
 import { selectAppState } from "../store/appState/selectors";
+import { selectUser } from "../store/user/selectors";
 
 export default function MainPage() {
   const dispatch = useDispatch();
   const mode = useSelector(selectAppState()).darkMode;
+  const user = useSelector(selectUser());
+
+  console.log(user);
 
   const background = mode ? "#444444" : "#FFFFFF";
   const colour = mode ? "#FFFFFF" : "#444444";
