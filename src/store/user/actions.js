@@ -7,6 +7,13 @@ export function loggedIn(userAndToken) {
   };
 }
 
+export function logOut() {
+  return {
+    type: "LOGGED_OUT",
+    payload: null,
+  };
+}
+
 export function signupThunkCreator(newUser) {
   return async function signUpThunk(dispatch, getState) {
     try {

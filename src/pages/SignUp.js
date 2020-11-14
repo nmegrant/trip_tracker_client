@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { signupThunkCreator } from "../store/user/actions";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { SearchButton as SignupButton } from "../components/styles/style";
@@ -47,10 +47,7 @@ export default function SignUp() {
         onSubmit={(values, actions) => {
           dispatch(signupThunkCreator(values));
           actions.resetForm();
-          console.log("here");
-          if (localStorage.getItem("token")) {
-            history.push("/");
-          }
+          history.push("/");
         }}
       >
         {({ isSubmitting, errors }) => (
@@ -82,6 +79,9 @@ export default function SignUp() {
           </Form>
         )}
       </Formik>
+      <p>
+        Already a member? <Link to="/login">Login</Link> here.
+      </p>
     </div>
   );
 }
