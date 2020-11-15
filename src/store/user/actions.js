@@ -14,6 +14,13 @@ export function logOut() {
   };
 }
 
+export function stillLoggedIn(userInfo) {
+  return {
+    type: "STILL_LOGGED_IN",
+    payload: userInfo,
+  };
+}
+
 export function signupThunkCreator(newUser) {
   return async function signUpThunk(dispatch, getState) {
     try {
@@ -35,6 +42,22 @@ export function loginThunkCreator(user) {
       dispatch(loggedIn(response.data));
     } catch (error) {
       console.log(`Error logging: ${error}`);
+    }
+  };
+}
+
+export function getLoggedInUserThunkCreator() {
+  return async function getUserThunk(dispatch, getState) {
+    const token = localStorage.getItem("token");
+    if (token === null) return;
+    try {
+      const response = await axios.get(`http://localhost:4000/user`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      dispatch(stillLoggedIn(response.data));
+    } catch (error) {
+      console.log(`Error retrieving logged in user: ${error}`);
+      dispatch(logOut());
     }
   };
 }
