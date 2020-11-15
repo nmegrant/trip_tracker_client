@@ -21,8 +21,6 @@ export default function MainPage() {
   const background = mode ? "#444444" : "#FFFFFF";
   const colour = mode ? "#FFFFFF" : "#444444";
 
-  console.log(user);
-
   useEffect(() => {
     dispatch(fetchVisitedThunkCreator());
     dispatch(fetchToVisitThunkCreator());
