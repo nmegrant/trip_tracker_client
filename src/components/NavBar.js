@@ -4,16 +4,11 @@ import { Link } from "react-router-dom";
 import DarkMode from "../components/DarkMode";
 import { ModeButton as LogOutButton } from "../components/styles/style";
 import { logOut } from "../store/user/actions";
-import { selectAppState } from "../store/appState/selectors";
 import { selectUser } from "../store/user/selectors";
 
 export default function NavBar() {
   const dispatch = useDispatch();
-  const mode = useSelector(selectAppState()).darkMode;
   const user = useSelector(selectUser());
-
-  const background = mode ? "#444444" : "#FFFFFF";
-  const colour = mode ? "#FFFFFF" : "#444444";
 
   function handleLogOut(event) {
     event.preventDefault();
@@ -21,7 +16,7 @@ export default function NavBar() {
   }
 
   return (
-    <div style={{ background: background, color: colour }}>
+    <div>
       <DarkMode />
       {user.token === null ? (
         <p>
