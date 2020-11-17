@@ -26,6 +26,7 @@ export default function NavBar() {
       ) : (
         <span>
           <LogOutButton onClick={handleLogOut}>Log Out</LogOutButton>
+          <Link to="/">Main Page</Link>
           <Link to="/userpage">{`${user.firstName}'s Page`}</Link>
         </span>
       )}
