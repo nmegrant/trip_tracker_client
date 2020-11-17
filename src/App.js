@@ -6,6 +6,7 @@ import MainPage from "./pages/MainPage";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import UserPage from "./pages/UserPage";
+import NavBar from "./components/NavBar";
 import { getLoggedInUserThunkCreator } from "./store/user/actions";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/userpage" component={UserPage} />
