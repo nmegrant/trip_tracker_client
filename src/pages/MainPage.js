@@ -40,7 +40,10 @@ export default function MainPage() {
           to plan/track your own trips!
         </p>
       ) : (
-        <LogOutButton onClick={handleLogOut}>Log Out</LogOutButton>
+        <span>
+          <LogOutButton onClick={handleLogOut}>Log Out</LogOutButton>
+          <Link to="/userpage">{`${user.firstName}'s Page`}</Link>
+        </span>
       )}
       <h1>Trip Tracker</h1>
       <div
