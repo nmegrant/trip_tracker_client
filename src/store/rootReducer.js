@@ -4,6 +4,7 @@ import toVisit from "./toVisit/reducer";
 import appState from "./appState/reducer";
 import user from "./user/reducer";
 import userToVisit from "./userToVisit/reducer";
+import userVisited from "./userVisited/reducer";
 
 export default combineReducers({
   visited,
@@ -11,4 +12,5 @@ export default combineReducers({
   appState,
   user,
   userToVisit,
+  userVisited,
 });
