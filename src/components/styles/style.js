@@ -32,6 +32,10 @@ export const ModeButton = styled.button`
   }
 `;
 
+export const Table = styled.table`
+  margin: 2rem;
+`;
+
 /* Array */
 // ["2274a5","f75c03","00916e","d90368","feefe5"]
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import DarkMode from "../components/DarkMode";
-import { ModeButton as LogOutButton } from "../components/styles/style";
+import DarkMode from "./DarkMode";
+import { ModeButton as LogOutButton } from "./styles/style";
 import { logOut } from "../store/user/actions";
 import { selectUser } from "../store/user/selectors";
 
