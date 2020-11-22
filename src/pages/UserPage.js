@@ -19,16 +19,20 @@ export default function UserPage() {
     if (user.token === null) {
       history.push("/login");
     }
-    dispatch(fetchUserToVisitThunkCreator);
-    dispatch(fetchUserVisitedThunkCreator);
-  }, [user]);
+  }, [user, history]);
 
-  console.log({ userToVisit });
-  console.log({ userVisited });
+  useEffect(() => {
+    dispatch(fetchUserToVisitThunkCreator());
+    dispatch(fetchUserVisitedThunkCreator());
+  }, [dispatch]);
+
+  console.log(userToVisit);
+  console.log(userVisited);
 
   return (
     <div>
       <h1>{`Welcome ${user.firstName}, to your trip planning and tracking page`}</h1>
+
       <Map />
     </div>
   );
