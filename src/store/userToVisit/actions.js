@@ -10,7 +10,10 @@ export function userToVisitFetched(userToVisitCities) {
 export function fetchUserToVisitThunkCreator() {
   return async function userToVisitThunk(dispatch, getState) {
     try {
-      const response = await axios.get(`http://localhost:4000/usertovisit`);
+      const token = localStorage.getItem("token");
+      const response = await axios.get(`http://localhost:4000/usertovisit`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       dispatch(userToVisitFetched(response.data));
     } catch (error) {
       console.log(`Error fetching user to visit`);
