@@ -4,9 +4,11 @@ export const SearchButton = styled.button`
   background-color: #00916e;
   color: #feefe5;
   font-size: 16px;
+  max-height: 40px;
   border: none;
   border-radius: 8px;
   padding: 5px 10px;
+  margin: 5px;
   border: solid 2px #00916e;
   transition-duration: 0.4s;
   &:hover {
@@ -21,6 +23,7 @@ export const ModeButton = styled.button`
   color: #feefe5;
   font-size: 16px;
   border: none;
+  max-height: 40px;
   border-radius: 8px;
   padding: 5px 10px;
   margin: 5px;
