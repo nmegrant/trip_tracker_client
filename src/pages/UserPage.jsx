@@ -37,7 +37,7 @@ export default function UserPage() {
         <Table userInfo={userToVisit} title="Places to visit" />
         <Table userInfo={userVisited} title="Places I've been" />
       </div>
-      <Map />
+      <Map toVisit={userToVisit} visited={userVisited} />
     </div>
   );
 }
