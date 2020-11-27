@@ -40,7 +40,10 @@ export default function UserPage() {
         <Button onClick={() => setToVisitState(!toVisitState)}>To Visit</Button>
         <Button onClick={() => setVisitedState(!visitedState)}>Visited</Button>
       </div>
-      <Map toVisit={userToVisit} visited={userVisited} />
+      <Map
+        toVisit={toVisitState ? userToVisit : []}
+        visited={visitedState ? userVisited : []}
+      />
     </div>
   );
 }
