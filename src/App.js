@@ -7,6 +7,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import UserPage from "./pages/UserPage";
 import NavBar from "./components/NavBar";
+import PlanningPage from "./pages/PlanningPage";
 import { selectAppState } from "./store/appState/selectors";
 import { getLoggedInUserThunkCreator } from "./store/user/actions";
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/userpage" component={UserPage} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
+        <Route path="/planning" component={PlanningPage} />
       </Switch>
     </div>
   );
