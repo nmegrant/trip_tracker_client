@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../store/user/selectors";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import styled from "styled-components";
+import { createNewUserToVisitThunkCreator } from "../store/userToVisit/actions";
 
 const FormHolder = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ const FormHolder = styled.div`
 
 export default function PlanningPage() {
   const history = useHistory();
+  const dispatch = useDispatch();
   const user = useSelector(selectUser());
 
   useEffect(() => {
@@ -20,8 +22,8 @@ export default function PlanningPage() {
     }
   });
 
-  const handleOnSumbit = (values, { setSubmitting }) => {
-    console.log(values);
+  const handleOnSumbit = (values) => {
+    dispatch(createNewUserToVisitThunkCreator(values));
   };
 
   return (

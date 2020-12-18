@@ -20,3 +20,21 @@ export function fetchUserToVisitThunkCreator() {
     }
   };
 }
+
+export function createNewUserToVisitThunkCreator(trip) {
+  return async function newUserToVisitThunk(dispatch, getState) {
+    const token = localStorage.getItem("token");
+    try {
+      const newTrip = await axios.post(
+        `http://localhost:4000/usertovisit`,
+        trip,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      console.log(newTrip);
+    } catch (error) {
+      console.log(`Error creating new user trip: ${error}`);
+    }
+  };
+}
