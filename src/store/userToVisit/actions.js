@@ -52,7 +52,7 @@ export function createNewUserToVisitThunkCreator(trip) {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      dispatch(newTripAdded(newTrip));
+      dispatch(newTripAdded(newTrip.data));
     } catch (error) {
       console.log(`Error creating new user trip: ${error}`);
     }
