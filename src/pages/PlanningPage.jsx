@@ -22,8 +22,9 @@ export default function PlanningPage() {
     }
   });
 
-  const handleOnSumbit = (values) => {
+  const handleOnSumbit = (values, actions) => {
     dispatch(createNewUserToVisitThunkCreator(values));
+    actions.resetForm();
   };
 
   return (
