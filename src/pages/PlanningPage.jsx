@@ -9,6 +9,7 @@ import { createNewUserToVisitThunkCreator } from "../store/userToVisit/actions";
 const FormHolder = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export default function PlanningPage() {
@@ -22,19 +23,21 @@ export default function PlanningPage() {
     }
   });
 
-  const handleOnSumbit = (values) => {
+  const handleOnSumbit = (values, actions) => {
     dispatch(createNewUserToVisitThunkCreator(values));
+    actions.resetForm();
   };
 
   return (
     <div>
       <h1>Plan your next vacation here</h1>
-      <FormHolder>
-        <Formik
-          initialValues={{ city: "", country: "", date: "", days: 0 }}
-          onSubmit={handleOnSumbit}
-        >
-          <Form>
+
+      <Formik
+        initialValues={{ city: "", country: "", date: "", days: 0 }}
+        onSubmit={handleOnSumbit}
+      >
+        <Form>
+          <FormHolder>
             <label htmlFor="city">City</label>
             <Field name="city" type="text" />
             <ErrorMessage name="city" />
@@ -48,9 +51,9 @@ export default function PlanningPage() {
             <Field name="days" type="number" />
             <ErrorMessage name="days" />
             <button type="submit">Submit</button>
-          </Form>
-        </Formik>
-      </FormHolder>
+          </FormHolder>
+        </Form>
+      </Formik>
     </div>
   );
 }
