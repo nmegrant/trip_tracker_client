@@ -8,6 +8,13 @@ export function userToVisitFetched(userToVisitCities) {
   };
 }
 
+export function newTripAdded(trip) {
+  return {
+    type: "NEW_TO_VISIT_ADDED",
+    payload: trip,
+  };
+}
+
 export function fetchUserToVisitThunkCreator() {
   return async function userToVisitThunk(dispatch, getState) {
     try {
@@ -45,7 +52,7 @@ export function createNewUserToVisitThunkCreator(trip) {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(newTrip);
+      dispatch(newTripAdded(newTrip));
     } catch (error) {
       console.log(`Error creating new user trip: ${error}`);
     }
