@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { createNewUserToVisitThunkCreator } from "../store/userToVisit/actions";
+import { createNewUserVisitedThunkCreator } from "../store/userVisited/actions";
 
 const FormHolder = styled.div`
   display: flex;

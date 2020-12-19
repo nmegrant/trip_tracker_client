@@ -1,9 +1,17 @@
 import axios from "axios";
+import Geocode from "react-geocode";
 
 export function userVisitedFetched(visitedCities) {
   return {
     type: "USER_VISITED_FETCHED",
     payload: visitedCities,
+  };
+}
+
+export function newPastTripAdded(trip) {
+  return {
+    type: "NEW_VISITED_ADDED",
+    payload: trip,
   };
 }
 
@@ -44,6 +52,7 @@ export function createNewUserVisitedThunkCreator(trip) {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+      dispatch(newPastTripAdded(newTrip.data));
     } catch (error) {
       console.log(`Error logging past user trip: ${error}`);
     }
