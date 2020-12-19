@@ -8,11 +8,16 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { createNewUserToVisitThunkCreator } from "../store/userToVisit/actions";
 import { createNewUserVisitedThunkCreator } from "../store/userVisited/actions";
+import { SearchButton as SubmitButton } from "../components/styles/style";
 
 const FormHolder = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const Container = styled.div`
+  padding: 2rem 0;
 `;
 
 export default function PlanningPage() {
@@ -37,7 +42,7 @@ export default function PlanningPage() {
   };
 
   return (
-    <div>
+    <Container>
       <Tabs>
         <TabList>
           <Tab>Plan Upcoming Trips</Tab>
@@ -63,7 +68,7 @@ export default function PlanningPage() {
                 <label htmlFor="days">Days</label>
                 <Field name="days" type="number" />
                 <ErrorMessage name="days" />
-                <button type="submit">Submit</button>
+                <SubmitButton type="submit">Submit</SubmitButton>
               </FormHolder>
             </Form>
           </Formik>
@@ -88,12 +93,12 @@ export default function PlanningPage() {
                 <label htmlFor="days">Days</label>
                 <Field name="days" type="number" />
                 <ErrorMessage name="days" />
-                <button type="submit">Submit</button>
+                <SubmitButton type="submit">Submit</SubmitButton>
               </FormHolder>
             </Form>
           </Formik>
         </TabPanel>
       </Tabs>
-    </div>
+    </Container>
   );
 }
