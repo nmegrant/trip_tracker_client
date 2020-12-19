@@ -25,8 +25,13 @@ export default function PlanningPage() {
     }
   });
 
-  const handleOnSumbit = (values, actions) => {
+  const handleOnSumbitToVisit = (values, actions) => {
     dispatch(createNewUserToVisitThunkCreator(values));
+    actions.resetForm();
+  };
+
+  const handleOnSumbitVisited = (values, actions) => {
+    // dispatch(createNewUserVisitedThunkCreator(values));
     actions.resetForm();
   };
 
@@ -41,7 +46,7 @@ export default function PlanningPage() {
           <h1>Plan your next trip here</h1>
           <Formik
             initialValues={{ city: "", country: "", date: "", days: 0 }}
-            onSubmit={handleOnSumbit}
+            onSubmit={handleOnSumbitToVisit}
           >
             <Form>
               <FormHolder>
@@ -63,7 +68,29 @@ export default function PlanningPage() {
           </Formik>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <h1>Record a past trip here</h1>
+          <Formik
+            initialValues={{ city: "", country: "", date: "", days: 0 }}
+            onSubmit={handleOnSumbitVisited}
+          >
+            <Form>
+              <FormHolder>
+                <label htmlFor="city">City</label>
+                <Field name="city" type="text" />
+                <ErrorMessage name="city" />
+                <label htmlFor="country">Country</label>
+                <Field name="country" type="text" />
+                <ErrorMessage name="country" />
+                <label htmlFor="date">Arrival Date</label>
+                <Field name="date" type="date" />
+                <ErrorMessage name="date" />
+                <label htmlFor="days">Days</label>
+                <Field name="days" type="number" />
+                <ErrorMessage name="days" />
+                <button type="submit">Submit</button>
+              </FormHolder>
+            </Form>
+          </Formik>
         </TabPanel>
       </Tabs>
     </div>
