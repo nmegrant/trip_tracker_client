@@ -60,19 +60,39 @@ export default function SignUp() {
           >
             <label htmlFor="firstName">First Name</label>
             <Field name="firstName" type="text" />
-            <ErrorMessage name="firstName" />
+            <ErrorMessage name="firstName">
+              {(msg) => (
+                <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+              )}
+            </ErrorMessage>
             <label htmlFor="lastName">Last Name</label>
             <Field name="lastName" type="text" />
-            <ErrorMessage name="lastName" />
+            <ErrorMessage name="lastName">
+              {(msg) => (
+                <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+              )}
+            </ErrorMessage>
             <label htmlFor="email">Email</label>
             <Field name="email" type="email" />
-            <ErrorMessage name="email" />
+            <ErrorMessage name="email">
+              {(msg) => (
+                <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+              )}
+            </ErrorMessage>
             <label htmlFor="password">Password</label>
             <Field name="password" type="password" />
-            <ErrorMessage name="password" />
+            <ErrorMessage name="password">
+              {(msg) => (
+                <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+              )}
+            </ErrorMessage>
             <label htmlFor="country">Country</label>
             <Field name="country" type="text" />
-            <ErrorMessage name="country" />
+            <ErrorMessage name="country">
+              {(msg) => (
+                <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+              )}
+            </ErrorMessage>
             <SignupButton type="submit" disabled={isSubmitting}>
               Sign up
             </SignupButton>
