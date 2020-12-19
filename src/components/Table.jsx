@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import { Table } from "./styles/style";
 
 export default function NavBar(props) {
@@ -17,7 +18,7 @@ export default function NavBar(props) {
             <td>{info.city}</td>
             <td>{info.country}</td>
             <td>{info.days}</td>
-            <td>{info.date}</td>
+            <td>{moment(info.date).format("DD/MM/YYYY")}</td>
           </tr>
         );
       })}
