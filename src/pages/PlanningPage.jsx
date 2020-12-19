@@ -31,7 +31,7 @@ export default function PlanningPage() {
   };
 
   const handleOnSumbitVisited = (values, actions) => {
-    // dispatch(createNewUserVisitedThunkCreator(values));
+    dispatch(createNewUserVisitedThunkCreator(values));
     actions.resetForm();
   };
 
