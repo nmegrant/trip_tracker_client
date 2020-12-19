@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../store/user/selectors";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import styled from "styled-components";
+import * as Yup from "yup";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { createNewUserToVisitThunkCreator } from "../store/userToVisit/actions";
@@ -41,6 +42,13 @@ export default function PlanningPage() {
     actions.resetForm();
   };
 
+  const validation = Yup.object({
+    city: Yup.string().required("Required"),
+    country: Yup.string().required("Required"),
+    date: Yup.string().required("Required"),
+    days: Yup.string().required("Required"),
+  });
+
   return (
     <Container>
       <Tabs>
@@ -52,6 +60,7 @@ export default function PlanningPage() {
           <h1>Plan your next trip here</h1>
           <Formik
             initialValues={{ city: "", country: "", date: "", days: 0 }}
+            validationSchema={validation}
             onSubmit={handleOnSumbitToVisit}
           >
             <Form>
@@ -77,6 +86,7 @@ export default function PlanningPage() {
           <h1>Record a past trip here</h1>
           <Formik
             initialValues={{ city: "", country: "", date: "", days: 0 }}
+            validationSchema={validation}
             onSubmit={handleOnSumbitVisited}
           >
             <Form>
