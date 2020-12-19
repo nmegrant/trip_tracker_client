@@ -10,6 +10,7 @@ import "react-tabs/style/react-tabs.css";
 import { createNewUserToVisitThunkCreator } from "../store/userToVisit/actions";
 import { createNewUserVisitedThunkCreator } from "../store/userVisited/actions";
 import { SearchButton as SubmitButton } from "../components/styles/style";
+import Alert from "../components/Alert";
 
 const FormHolder = styled.div`
   display: flex;
