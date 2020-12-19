@@ -67,16 +67,32 @@ export default function PlanningPage() {
               <FormHolder>
                 <label htmlFor="city">City</label>
                 <Field name="city" type="text" />
-                <ErrorMessage name="city" />
+                <ErrorMessage name="city">
+                  {(msg) => (
+                    <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+                  )}
+                </ErrorMessage>
                 <label htmlFor="country">Country</label>
                 <Field name="country" type="text" />
-                <ErrorMessage name="country" />
+                <ErrorMessage name="country">
+                  {(msg) => (
+                    <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+                  )}
+                </ErrorMessage>
                 <label htmlFor="date">Arrival Date</label>
                 <Field name="date" type="date" />
-                <ErrorMessage name="date" />
+                <ErrorMessage name="date">
+                  {(msg) => (
+                    <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+                  )}
+                </ErrorMessage>
                 <label htmlFor="days">Days</label>
                 <Field name="days" type="number" />
-                <ErrorMessage name="days" />
+                <ErrorMessage name="days">
+                  {(msg) => (
+                    <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+                  )}
+                </ErrorMessage>
                 <SubmitButton type="submit">Submit</SubmitButton>
               </FormHolder>
             </Form>
@@ -93,16 +109,32 @@ export default function PlanningPage() {
               <FormHolder>
                 <label htmlFor="city">City</label>
                 <Field name="city" type="text" />
-                <ErrorMessage name="city" />
+                <ErrorMessage name="city">
+                  {(msg) => (
+                    <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+                  )}
+                </ErrorMessage>
                 <label htmlFor="country">Country</label>
                 <Field name="country" type="text" />
-                <ErrorMessage name="country" />
+                <ErrorMessage name="country">
+                  {(msg) => (
+                    <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+                  )}
+                </ErrorMessage>
                 <label htmlFor="date">Arrival Date</label>
                 <Field name="date" type="date" />
-                <ErrorMessage name="date" />
+                <ErrorMessage name="date">
+                  {(msg) => (
+                    <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+                  )}
+                </ErrorMessage>
                 <label htmlFor="days">Days</label>
                 <Field name="days" type="number" />
-                <ErrorMessage name="days" />
+                <ErrorMessage name="days">
+                  {(msg) => (
+                    <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+                  )}
+                </ErrorMessage>
                 <SubmitButton type="submit">Submit</SubmitButton>
               </FormHolder>
             </Form>
