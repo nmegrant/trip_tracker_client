@@ -23,7 +23,7 @@ export default function Login() {
           history.push("/");
         }}
       >
-        {({ isSubmitting, errors }) => (
+        {({ isSubmitting }) => (
           <Form
             style={{
               display: "flex",
@@ -33,10 +33,18 @@ export default function Login() {
           >
             <label htmlFor="email">Email</label>
             <Field name="email" type="email" />
-            <ErrorMessage name="email" />
+            <ErrorMessage name="email">
+              {(msg) => (
+                <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+              )}
+            </ErrorMessage>
             <label htmlFor="password">Password</label>
             <Field name="password" type="password" />
-            <ErrorMessage name="password" />
+            <ErrorMessage name="password">
+              {(msg) => (
+                <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+              )}
+            </ErrorMessage>
             <LoginButton type="submit" disabled={isSubmitting}>
               Login
             </LoginButton>
