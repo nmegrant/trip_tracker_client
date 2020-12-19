@@ -50,7 +50,7 @@ export default function UserPage() {
       <h1>{`Welcome ${user.firstName}, to your trip planning and tracking page`}</h1>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Button>
-          <ButtonLink to="/planning">Plan Your Next Trip</ButtonLink>
+          <ButtonLink to="/planning">Track Your Trips</ButtonLink>
         </Button>
         <Table userInfo={userToVisit} title="Places to visit" />
         <Table userInfo={userVisited} title="Places I've been" />
