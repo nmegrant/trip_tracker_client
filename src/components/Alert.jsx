@@ -5,8 +5,6 @@ import { selectMessage } from "../store/appState//selectors";
 export default function Alert() {
   const message = useSelector(selectMessage());
 
-  console.log(message);
-
   return (
     <div>
       {message !== null ? (

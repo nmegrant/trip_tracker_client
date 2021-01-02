@@ -29,8 +29,12 @@ export function signupThunkCreator(newUser) {
         `http://localhost:4000/signup`,
         newUser
       );
+      dispatch(showMessageThunkCreator("User profile created!", "green"));
       dispatch(loggedIn(response.data));
     } catch (error) {
+      dispatch(
+        showMessageThunkCreator("Failed to create user profile!", "red")
+      );
       console.log(`Error signing up: ${error}`);
     }
   };
@@ -40,8 +44,8 @@ export function loginThunkCreator(user) {
   return async function loginThunk(dispatch, getState) {
     try {
       const response = await axios.post(`http://localhost:4000/login`, user);
-      dispatch(loggedIn(response.data));
       dispatch(showMessageThunkCreator("Logged in!", "green"));
+      dispatch(loggedIn(response.data));
     } catch (error) {
       dispatch(showMessageThunkCreator("Failed to log in!", "red"));
       console.log(`Error logging: ${error}`);
@@ -59,6 +63,7 @@ export function getLoggedInUserThunkCreator() {
       });
       dispatch(stillLoggedIn(response.data));
     } catch (error) {
+      dispatch(showMessageThunkCreator("You are being logged out!", "red"));
       console.log(`Error retrieving logged in user: ${error}`);
       dispatch(logOut());
     }
