@@ -5,6 +5,7 @@ import DarkMode from "./DarkMode";
 import { ModeButton as LogOutButton } from "./styles/style";
 import { logOut } from "../store/user/actions";
 import { selectUser } from "../store/user/selectors";
+import { showMessageThunkCreator } from "../store/appState/actions";
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export default function NavBar() {
   function handleLogOut(event) {
     event.preventDefault();
     dispatch(logOut());
+    dispatch(showMessageThunkCreator("Logged out!", "green"));
   }
 
   return (

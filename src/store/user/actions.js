@@ -1,4 +1,5 @@
 import axios from "axios";
+import { showMessageThunkCreator } from "../appState/actions";
 
 export function loggedIn(userAndToken) {
   return {
@@ -40,7 +41,9 @@ export function loginThunkCreator(user) {
     try {
       const response = await axios.post(`http://localhost:4000/login`, user);
       dispatch(loggedIn(response.data));
+      dispatch(showMessageThunkCreator("Logged in!", "green"));
     } catch (error) {
+      dispatch(showMessageThunkCreator("Failed to log in!", "red"));
       console.log(`Error logging: ${error}`);
     }
   };

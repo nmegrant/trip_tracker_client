@@ -1,9 +1,6 @@
 const initialState = {
   darkMode: false,
-  messageInfo: {
-    style: null,
-    message: null,
-  },
+  message: null,
 };
 
 export default function appStateReducer(state = initialState, action) {
@@ -11,14 +8,11 @@ export default function appStateReducer(state = initialState, action) {
     case "DARK_MODE_SET":
       return { ...state, darkMode: action.payload };
     case "SET_MESSAGE":
-      return { ...state, messageInfo: action.payload };
+      return { ...state, message: action.payload };
     case "CLEAR_MESSAGE":
       return {
         ...state,
-        messageInfo: {
-          style: null,
-          message: null,
-        },
+        message: null,
       };
     default:
       return state;

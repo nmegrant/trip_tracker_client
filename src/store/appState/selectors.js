@@ -6,6 +6,6 @@ export function selectAppState() {
 
 export function selectMessage() {
   return (state) => {
-    return state.appState.info;
+    return state.appState.message;
   };
 }
