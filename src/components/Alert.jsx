@@ -6,11 +6,22 @@ import { selectMessage } from "../store/appState//selectors";
 export default function Alert() {
   const message = useSelector(selectMessage());
 
+  let textColour;
+  let backgroundColour;
+
+  if (message && message.style === "info") {
+    textColour = `rgb(34, 139, 34)`;
+    backgroundColour = `rgba(34, 139, 34, 0.1)`;
+  } else {
+    textColour = `rgb(178, 34, 34)`;
+    backgroundColour = `rgba(178, 34, 34, 0.1)`;
+  }
+
   const AlertBox = message
     ? styled.div`
-        border: solid 1px ${message.style};
-        background-color: rgba(0, 255, 0, 0.1);
-        color: ${message.style};
+        border: solid 1px ${textColour};
+        background-color: ${backgroundColour};
+        color: ${textColour};
       `
     : null;
 
