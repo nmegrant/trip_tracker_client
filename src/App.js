@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 import PlanningPage from "./pages/PlanningPage";
 import { selectAppState } from "./store/appState/selectors";
 import { getLoggedInUserThunkCreator } from "./store/user/actions";
+import Alert from "./components/Alert";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
       style={{ background: background, color: colour, height: "1000px" }}
     >
       <NavBar />
+      <Alert />
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/userpage" component={UserPage} />
