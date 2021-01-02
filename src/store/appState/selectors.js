@@ -3,3 +3,9 @@ export function selectAppState() {
     return state.appState;
   };
 }
+
+export function selectMessage() {
+  return (state) => {
+    return state.appState.message;
+  };
+}
