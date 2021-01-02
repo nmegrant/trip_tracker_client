@@ -29,11 +29,11 @@ export function signupThunkCreator(newUser) {
         `http://localhost:4000/signup`,
         newUser
       );
-      dispatch(showMessageThunkCreator("User profile created!", "green"));
+      dispatch(showMessageThunkCreator("User profile created!", "info"));
       dispatch(loggedIn(response.data));
     } catch (error) {
       dispatch(
-        showMessageThunkCreator("Failed to create user profile!", "red")
+        showMessageThunkCreator("Failed to create user profile!", "warn")
       );
       console.log(`Error signing up: ${error}`);
     }
@@ -44,10 +44,10 @@ export function loginThunkCreator(user) {
   return async function loginThunk(dispatch, getState) {
     try {
       const response = await axios.post(`http://localhost:4000/login`, user);
-      dispatch(showMessageThunkCreator("Logged in!", "green"));
+      dispatch(showMessageThunkCreator("Logged in!", "info"));
       dispatch(loggedIn(response.data));
     } catch (error) {
-      dispatch(showMessageThunkCreator("Failed to log in!", "red"));
+      dispatch(showMessageThunkCreator("Failed to log in!", "warn"));
       console.log(`Error logging: ${error}`);
     }
   };
@@ -63,7 +63,7 @@ export function getLoggedInUserThunkCreator() {
       });
       dispatch(stillLoggedIn(response.data));
     } catch (error) {
-      dispatch(showMessageThunkCreator("You are being logged out!", "red"));
+      dispatch(showMessageThunkCreator("You are being logged out!", "warn"));
       console.log(`Error retrieving logged in user: ${error}`);
       dispatch(logOut());
     }
