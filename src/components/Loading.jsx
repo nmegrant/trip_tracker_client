@@ -1,9 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectLoading } from "../store/appState//selectors";
 
 export default function Loading() {
-  return (
-    <div>
-      <h1>LOADING</h1>
-    </div>
-  );
+  const loadingStatus = useSelector(selectLoading());
+  console.log(loadingStatus);
+
+  return <div>{loadingStatus ? <h1>LOADING</h1> : null}</div>;
 }
