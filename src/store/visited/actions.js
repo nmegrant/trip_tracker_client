@@ -64,6 +64,7 @@ export function addNewVisitedThunkCreator(location) {
       dispatch(deleteToVisitThunkCreator({ city, country }));
       dispatch(showMessageThunkCreator("New visited location added.", "info"));
     } catch (error) {
+      showMessageThunkCreator("Unable to add visited location.", "warn");
       console.log(`Error adding new city visisted: ${error}`);
     }
   };

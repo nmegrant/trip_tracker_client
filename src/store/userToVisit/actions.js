@@ -59,6 +59,7 @@ export function createNewUserToVisitThunkCreator(trip) {
       dispatch(newTripAdded(newTrip.data));
       dispatch(showMessageThunkCreator("New to visit location added.", "info"));
     } catch (error) {
+      showMessageThunkCreator("Unable to add new to visit location.", "warn");
       console.log(`Error creating new user trip: ${error}`);
     }
   };

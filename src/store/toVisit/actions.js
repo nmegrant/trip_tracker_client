@@ -61,6 +61,9 @@ export function addNewToVisitThunkCreator(location) {
       dispatch(addToVisit(newToVisit.data));
       dispatch(showMessageThunkCreator("New to visit location added.", "info"));
     } catch (error) {
+      dispatch(
+        showMessageThunkCreator("Unable to add new to visit location.", "warn")
+      );
       console.log(`Error adding new city to visist: ${error}`);
     }
   };
