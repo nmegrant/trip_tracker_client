@@ -2,6 +2,7 @@ import axios from "axios";
 import Geocode from "react-geocode";
 import { deleteToVisitThunkCreator } from "../toVisit/actions";
 import { loading, doneLoading } from "../appState/actions";
+import { showMessageThunkCreator } from "../appState/actions";
 
 export function visitedFetched(visitedCities) {
   return {
@@ -61,6 +62,7 @@ export function addNewVisitedThunkCreator(location) {
       });
       dispatch(addVisited(newVisited.data));
       dispatch(deleteToVisitThunkCreator({ city, country }));
+      dispatch(showMessageThunkCreator("New visited location added.", "info"));
     } catch (error) {
       console.log(`Error adding new city visisted: ${error}`);
     }
