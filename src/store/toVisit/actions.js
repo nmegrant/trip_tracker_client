@@ -1,6 +1,7 @@
 import axios from "axios";
 import Geocode from "react-geocode";
 import { loading, doneLoading } from "../appState/actions";
+import { showMessageThunkCreator } from "../appState/actions";
 
 export function toVisitFetched(toVisitCities) {
   return {
@@ -58,7 +59,11 @@ export function addNewToVisitThunkCreator(location) {
         country,
       });
       dispatch(addToVisit(newToVisit.data));
+      dispatch(showMessageThunkCreator("New to visit location added.", "info"));
     } catch (error) {
+      dispatch(
+        showMessageThunkCreator("Unable to add new to visit location.", "warn")
+      );
       console.log(`Error adding new city to visist: ${error}`);
     }
   };
@@ -88,6 +93,9 @@ export function deleteToVisitThunkCreator(location) {
 
       if (newToVisit.data.length > 0) {
         dispatch(toVisitUpdatedFetched(newToVisit.data));
+        dispatch(
+          showMessageThunkCreator("Deleted location from to visit", "info")
+        );
       }
     } catch (error) {
       console.log(`Error deleting city: ${error}`);

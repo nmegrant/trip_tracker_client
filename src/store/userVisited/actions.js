@@ -1,6 +1,7 @@
 import axios from "axios";
 import Geocode from "react-geocode";
 import { loading, doneLoading } from "../appState/actions";
+import { showMessageThunkCreator } from "../appState/actions";
 
 export function userVisitedFetched(visitedCities) {
   return {
@@ -56,7 +57,9 @@ export function createNewUserVisitedThunkCreator(trip) {
         }
       );
       dispatch(newPastTripAdded(newTrip.data));
+      dispatch(showMessageThunkCreator("New visited location added.", "info"));
     } catch (error) {
+      showMessageThunkCreator("Unable to add visited location.", "warn");
       console.log(`Error logging past user trip: ${error}`);
     }
   };
