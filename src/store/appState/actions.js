@@ -18,6 +18,14 @@ export function clearMessage() {
   };
 }
 
+export function loading() {
+  return { type: "LOADING" };
+}
+
+export function doneLoading() {
+  return { type: "DONE_LOADING" };
+}
+
 export function showMessageThunkCreator(message, style) {
   return function showMessage(dispatch, getState) {
     dispatch(setMessage(message, style));
