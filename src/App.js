@@ -11,6 +11,7 @@ import PlanningPage from "./pages/PlanningPage";
 import { selectAppState } from "./store/appState/selectors";
 import { getLoggedInUserThunkCreator } from "./store/user/actions";
 import Alert from "./components/Alert";
+import Loading from "./components/Loading";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function App() {
       style={{ background: background, color: colour, height: "1000px" }}
     >
       <NavBar />
+      <Loading />
       <Alert />
       <Switch>
         <Route exact path="/" component={MainPage} />
