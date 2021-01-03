@@ -9,3 +9,9 @@ export function selectMessage() {
     return state.appState.message;
   };
 }
+
+export function selectLoading() {
+  return (state) => {
+    return state.appState.loading;
+  };
+}

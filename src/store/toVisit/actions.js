@@ -1,5 +1,6 @@
 import axios from "axios";
 import Geocode from "react-geocode";
+import { loading, doneLoading } from "../appState/actions";
 
 export function toVisitFetched(toVisitCities) {
   return {
@@ -11,8 +12,10 @@ export function toVisitFetched(toVisitCities) {
 export function fetchToVisitThunkCreator() {
   return async function toVisitThunk(dispatch, getState) {
     try {
+      dispatch(loading());
       const response = await axios.get(`http://localhost:4000/tovisit`);
       dispatch(toVisitFetched(response.data));
+      dispatch(doneLoading());
     } catch (error) {
       console.log(`Error fetching to visit: ${error}`);
     }

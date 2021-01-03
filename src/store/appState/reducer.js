@@ -1,6 +1,7 @@
 const initialState = {
   darkMode: false,
   message: null,
+  loading: false,
 };
 
 export default function appStateReducer(state = initialState, action) {
@@ -13,6 +14,16 @@ export default function appStateReducer(state = initialState, action) {
       return {
         ...state,
         message: null,
+      };
+    case "LOADING":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "DONE_LOADING":
+      return {
+        ...state,
+        loading: false,
       };
     default:
       return state;

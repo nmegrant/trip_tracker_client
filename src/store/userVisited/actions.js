@@ -1,5 +1,6 @@
 import axios from "axios";
 import Geocode from "react-geocode";
+import { loading, doneLoading } from "../appState/actions";
 
 export function userVisitedFetched(visitedCities) {
   return {
@@ -18,11 +19,13 @@ export function newPastTripAdded(trip) {
 export function fetchUserVisitedThunkCreator() {
   return async function userVisitedThunk(dispatch, getState) {
     try {
+      dispatch(loading());
       const token = localStorage.getItem("token");
       const response = await axios.get(`http://localhost:4000/uservisited`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(userVisitedFetched(response.data));
+      dispatch(doneLoading());
     } catch (error) {
       console.log(`Error fetching visited: ${error}`);
     }
