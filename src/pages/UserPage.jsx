@@ -66,16 +66,16 @@ export default function UserPage() {
   return (
     <div>
       <h1>{`Welcome ${user.firstName}, to your trip planning and tracking page`}</h1>
+      <Button>
+        <ButtonLink to="/planning">Track Your Trips</ButtonLink>
+      </Button>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button>
-          <ButtonLink to="/planning">Track Your Trips</ButtonLink>
-        </Button>
         <Stats />
         <Table userInfo={userToVisit} title="Places to visit" />
         <Table userInfo={userVisited} title="Places I've been" />
-        <Button onClick={() => setToVisitState(!toVisitState)}>To Visit</Button>
-        <Button onClick={() => setVisitedState(!visitedState)}>Visited</Button>
       </div>
+      <Button onClick={() => setToVisitState(!toVisitState)}>To Visit</Button>
+      <Button onClick={() => setVisitedState(!visitedState)}>Visited</Button>
       <Map
         toVisit={toVisitState ? userToVisit : []}
         visited={visitedState ? userVisited : []}
