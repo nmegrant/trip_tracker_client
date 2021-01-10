@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import DarkMode from "./DarkMode";
 import { ModeButton as LogOutButton } from "./styles/style";
 import { logOut } from "../store/user/actions";
@@ -35,14 +35,47 @@ export default function NavBar() {
       <DarkMode />
       {user.token === null ? (
         <p>
-          <Link to="/signup">Sign up</Link> or <Link to="/login">Log in</Link>{" "}
+          <NavLink
+            to="/signup"
+            activeStyle={{
+              fontWeight: "bold",
+              color: "blue",
+            }}
+          >
+            Sign up
+          </NavLink>{" "}
+          or{" "}
+          <NavLink
+            to="/login"
+            activeStyle={{
+              fontWeight: "bold",
+              color: "blue",
+            }}
+          >
+            Log in
+          </NavLink>{" "}
           to plan/track your own trips!
         </p>
       ) : (
         <Bar>
           <LogOutButton onClick={handleLogOut}>Log Out</LogOutButton>
-          <Link to="/">Main Page</Link>
-          <Link to="/userpage">{`${user.firstName}'s Page`}</Link>
+          <NavLink
+            exact
+            to="/"
+            activeStyle={{
+              fontWeight: "bold",
+              color: "blue",
+            }}
+          >
+            Main Page
+          </NavLink>
+          <NavLink
+            to="/userpage"
+            activeStyle={{
+              fontWeight: "bold",
+              color: "blue",
+            }}
+          >{`${user.firstName}'s Page`}</NavLink>
         </Bar>
       )}
     </BarContainer>
