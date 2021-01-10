@@ -11,6 +11,13 @@ import styled from "styled-components";
 const Bar = styled.span`
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  width: 400px;
+`;
+
+const BarContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 export default function NavBar() {
@@ -24,7 +31,7 @@ export default function NavBar() {
   }
 
   return (
-    <span>
+    <BarContainer>
       <DarkMode />
       {user.token === null ? (
         <p>
@@ -38,6 +45,6 @@ export default function NavBar() {
           <Link to="/userpage">{`${user.firstName}'s Page`}</Link>
         </Bar>
       )}
-    </span>
+    </BarContainer>
   );
 }
