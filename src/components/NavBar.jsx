@@ -6,6 +6,12 @@ import { ModeButton as LogOutButton } from "./styles/style";
 import { logOut } from "../store/user/actions";
 import { selectUser } from "../store/user/selectors";
 import { showMessageThunkCreator } from "../store/appState/actions";
+import styled from "styled-components";
+
+const Bar = styled.span`
+  display: flex;
+  justify-content: space-evenly;
+`;
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -18,7 +24,7 @@ export default function NavBar() {
   }
 
   return (
-    <div>
+    <span>
       <DarkMode />
       {user.token === null ? (
         <p>
@@ -26,12 +32,12 @@ export default function NavBar() {
           to plan/track your own trips!
         </p>
       ) : (
-        <span>
+        <Bar>
           <LogOutButton onClick={handleLogOut}>Log Out</LogOutButton>
           <Link to="/">Main Page</Link>
           <Link to="/userpage">{`${user.firstName}'s Page`}</Link>
-        </span>
+        </Bar>
       )}
-    </div>
+    </span>
   );
 }
