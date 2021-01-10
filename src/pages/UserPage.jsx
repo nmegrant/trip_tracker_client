@@ -10,6 +10,7 @@ import { fetchUserToVisitThunkCreator } from "../store/userToVisit/actions";
 import { fetchUserVisitedThunkCreator } from "../store/userVisited/actions";
 import { selectUserToVisit } from "../store/userToVisit/selectors";
 import { selectUserVisited } from "../store/userVisited/selectors";
+import Stats from "../components/Stats";
 
 export const Button = styled.button`
   background-color: #00916e;
@@ -69,6 +70,7 @@ export default function UserPage() {
         <Button>
           <ButtonLink to="/planning">Track Your Trips</ButtonLink>
         </Button>
+        <Stats />
         <Table userInfo={userToVisit} title="Places to visit" />
         <Table userInfo={userVisited} title="Places I've been" />
         <Button onClick={() => setToVisitState(!toVisitState)}>To Visit</Button>
