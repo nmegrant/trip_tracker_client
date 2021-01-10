@@ -27,6 +27,18 @@ export const Button = styled.button`
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+`;
+
 export default function MainPage() {
   const dispatch = useDispatch();
   const visited = useSelector(selectVisted());
@@ -43,18 +55,29 @@ export default function MainPage() {
   return (
     <div>
       <h1>Trip Tracker</h1>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-        }}
-      >
-        <LocationSearch />
-      </div>
-      <Button onClick={() => setToVisitState(!toVisitState)}>To Visit</Button>
-      <Button onClick={() => setVisitedState(!visitedState)}>Visited</Button>
-      <Map toVisit={toVisit} visited={visited} />
+      <Container>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <LocationSearch />
+        </div>
+        <ButtonContainer>
+          <Button onClick={() => setToVisitState(!toVisitState)}>
+            To Visit
+          </Button>
+          <Button onClick={() => setVisitedState(!visitedState)}>
+            Visited
+          </Button>
+        </ButtonContainer>
+      </Container>
+      <Map
+        toVisit={toVisitState ? toVisit : []}
+        visited={visitedState ? visited : []}
+      />
     </div>
   );
 }
