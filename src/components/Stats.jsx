@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectVisted } from "../store/visited/selectors";
+import { selectUserVisited } from "../store/userVisited/selectors";
 
 export default function Stats() {
-  const visited = useSelector(selectVisted());
+  const visited = useSelector(selectUserVisited());
 
   //calculate percentage of cities visited - may move to server later
 
