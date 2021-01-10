@@ -39,6 +39,13 @@ const ButtonContainer = styled.div`
   align-self: flex-end;
 `;
 
+const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+
 export default function MainPage() {
   const dispatch = useDispatch();
   const visited = useSelector(selectVisted());
@@ -65,14 +72,20 @@ export default function MainPage() {
         >
           <LocationSearch />
         </div>
-        <ButtonContainer>
-          <Button onClick={() => setToVisitState(!toVisitState)}>
-            To Visit
-          </Button>
-          <Button onClick={() => setVisitedState(!visitedState)}>
-            Visited
-          </Button>
-        </ButtonContainer>
+        <InfoContainer>
+          <div>
+            Plan and track your trips! Try out our map here then create your own
+            page to save your travel plans.
+          </div>
+          <ButtonContainer>
+            <Button onClick={() => setToVisitState(!toVisitState)}>
+              To Visit
+            </Button>
+            <Button onClick={() => setVisitedState(!visitedState)}>
+              Visited
+            </Button>
+          </ButtonContainer>
+        </InfoContainer>
       </Container>
       <Map
         toVisit={toVisitState ? toVisit : []}
