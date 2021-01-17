@@ -10,7 +10,6 @@ const Container = styled.div`
 
 export default function NavBar(props) {
   const { userInfo } = props;
-
   return (
     <Container>
       <Table>
@@ -20,6 +19,7 @@ export default function NavBar(props) {
             <th>City</th>
             <th>Country</th>
             <th>Date</th>
+            {userInfo[0] && userInfo[0].ranking && <th>Rating</th>}
           </tr>
         </thead>
         <tbody>
@@ -29,6 +29,11 @@ export default function NavBar(props) {
                 <td>{info.city}</td>
                 <td>{info.country}</td>
                 <td>{moment(info.date).format("DD/MM/YYYY")}</td>
+                {info.ranking && info.ranking === -1 ? (
+                  <td>No ranking</td>
+                ) : (
+                  <td>{info.ranking}</td>
+                )}
               </tr>
             );
           })}
