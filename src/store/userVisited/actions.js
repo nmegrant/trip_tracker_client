@@ -25,6 +25,7 @@ export function fetchUserVisitedThunkCreator() {
       const response = await axios.get(`http://localhost:4000/uservisited`, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      console.log(response.data);
       dispatch(userVisitedFetched(response.data));
       dispatch(doneLoading());
     } catch (error) {

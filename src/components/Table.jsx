@@ -9,26 +9,30 @@ const Container = styled.div`
 `;
 
 export default function NavBar(props) {
+  const { userInfo } = props;
+
   return (
     <Container>
       <Table>
         <caption style={{ fontSize: "26px" }}>{props.title}</caption>
-        <tr>
-          <th>City</th>
-          <th>Country</th>
-          <th>Days</th>
-          <th>Date</th>
-        </tr>
-        {props.userInfo.map((info) => {
-          return (
-            <tr>
-              <td>{info.city}</td>
-              <td>{info.country}</td>
-              <td>{info.days}</td>
-              <td>{moment(info.date).format("DD/MM/YYYY")}</td>
-            </tr>
-          );
-        })}
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Country</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userInfo.map((info, index) => {
+            return (
+              <tr key={index}>
+                <td>{info.city}</td>
+                <td>{info.country}</td>
+                <td>{moment(info.date).format("DD/MM/YYYY")}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </Table>
     </Container>
   );
