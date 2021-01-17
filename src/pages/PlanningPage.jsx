@@ -49,6 +49,14 @@ export default function PlanningPage() {
     days: Yup.string().required("Required"),
   });
 
+  const visitedValidation = Yup.object({
+    city: Yup.string().required("Required"),
+    country: Yup.string().required("Required"),
+    date: Yup.string().required("Required"),
+    days: Yup.string().required("Required"),
+    rating: Yup.number().max(5).min(0),
+  });
+
   return (
     <Container>
       <Tabs>
@@ -102,7 +110,7 @@ export default function PlanningPage() {
           <h1>Record a past trip here</h1>
           <Formik
             initialValues={{ city: "", country: "", date: "", days: 0 }}
-            validationSchema={validation}
+            validationSchema={visitedValidation}
             onSubmit={handleOnSumbitVisited}
           >
             <Form>
@@ -131,6 +139,13 @@ export default function PlanningPage() {
                 <label htmlFor="days">Days</label>
                 <Field name="days" type="number" />
                 <ErrorMessage name="days">
+                  {(msg) => (
+                    <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
+                  )}
+                </ErrorMessage>
+                <label htmlFor="rating">Rating</label>
+                <Field name="rating" type="number" />
+                <ErrorMessage name="rating">
                   {(msg) => (
                     <div style={{ color: "red", fontSize: "12px" }}>{msg}</div>
                   )}
