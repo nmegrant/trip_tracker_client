@@ -9,7 +9,8 @@ export default function Stats() {
   const ratedVisited = sortedVisited.filter((place) =>
     /^[0-5]$/.test(place.ranking)
   );
-  console.log("rated", ratedVisited);
+  const favourite = ratedVisited[ratedVisited.length - 1];
+  const leastFavourite = ratedVisited[0];
 
   //calculate percentage of cities visited - may move to server later
 
@@ -37,6 +38,10 @@ export default function Stats() {
         There are 195 countries in the world and you've visited{" "}
         {percentageOfCountries.toFixed(2)}% of them.
       </p>
+      {favourite && <p>Your favourite country visited is {favourite.city}</p>}
+      {favourite && (
+        <p>Your least favourite country visited is {leastFavourite.city}</p>
+      )}
     </div>
   );
 }
