@@ -5,6 +5,12 @@ import { selectUserVisited } from "../store/userVisited/selectors";
 export default function Stats() {
   const visited = useSelector(selectUserVisited());
 
+  const sortedVisited = visited.sort((a, b) => a.ranking - b.ranking);
+  const ratedVisited = sortedVisited.filter((place) =>
+    /^[0-5]$/.test(place.ranking)
+  );
+  console.log("rated", ratedVisited);
+
   //calculate percentage of cities visited - may move to server later
 
   const numberOfCities = visited.map((place) => place.city).length;
